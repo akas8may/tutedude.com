@@ -9,4 +9,4 @@ def writetofile(text):
     except Exception as e:
         print(e)
 
-writetofile(input("Enter text for file: "))
+writetofile(input("Enter for file: "))
