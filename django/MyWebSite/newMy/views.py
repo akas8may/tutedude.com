@@ -1,0 +1,7 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+
+
+def home(request):
+    return HttpResponse("<h1>This is the home page 22</h1>")

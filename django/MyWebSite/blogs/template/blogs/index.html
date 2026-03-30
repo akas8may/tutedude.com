@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog List</title>
+    <style>
+        body { font-family: Arial; }
+        .blog {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .meta {
+            color: gray;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Latest Blogs</h1>
+
+    {% for blog in blogs %}
+        <div class="blog">
+            <h2>{{ blog.title }}</h2>
+
+            <p class="meta">
+                By {{ blog.author }} |
+                {{ blog.created_at|date:"d M Y H:i" }}
+            </p>
+
+            <p>{{ blog.content }}</p>
+            <h3>Comments:</h3>
+                {% for comment in comments %}
+                    {% if comment.post.id == blog.id %}
+                        <div class="comment">
+                            <p><strong>{{ comment.user_name }}</strong> said:</p>
+                            <p><strong>{{ comment.user_email }}</strong> said:</p>
+                            <p>{{ comment.comment_text }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            <section>
+                <h2>Leave a Comment</h2>
+                <form method="post" action="{% url 'comment' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="post" value="{{ blog.id }}">
+                    {{ commentForm.as_p }}
+                    <button type="submit">Submit Comment</button>
+                </form>
+            </section>
+               
+        </div>
+    {% empty %}
+        <p>No blogs found.</p>
+    {% endfor %}
+
+</body>
+</html>

@@ -25,3 +25,15 @@ Ass4/task2.py to Task 2: Write and Append Data to a File
 Ass5/task1.py to Task 1: Create a Dictionary of Student Marks
 
 Ass5/task2.py to Task 2: Demonstrate List Slicing
+
+----------------------------
+Ass6/CALCULATOR.py to Task : CALCULATOR USING TKINTER
+
+This task implements a simple calculator using Python Tkinter.
+
+Features:
+- GUI interface
+- Basic arithmetic operations (+, -, *, /)
+- Clear button
+- Equal button to compute result
+--------------------------------
